@@ -1,3 +1,14 @@
+/* Custom properties */
+
+:root {
+  /* font sizes */
+  --fs-300: 13px;
+  --fs-200: 12px;
+  /* font weights */
+  --fw-400: 400;
+  --fw-700: 700;
+}
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -27,4 +38,70 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #root, #__next {
   isolation: isolate;
+}
+
+/* Utility classes */
+.container {
+  margin: 0 auto;
+  max-width: 375px;
+}
+
+.flex {
+  display: flex;
+}
+
+.fs-200 { font-size: var(--fs-200);}
+.fs-300 { font-size: var(--fs-300);}
+
+.fw-bold { font-weight: var(--fw-700);}
+
+/* General Styles */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: var(--fs-300);
+  background: burlywood;
+
+}
+
+.oldagram {
+  background: #fff;
+}
+
+.header {
+	justify-content: space-between;
+	align-items: center;
+  border-bottom: 1px solid #C6C6C6;
+}
+
+.logo {
+  width: 127px;
+}
+
+.avatar {
+  width: 34px;
+  border-radius: 50%; 
+}
+
+
+/* individual post styles */
+
+.post-header {
+  justify-content: flex-start;
+	align-items: center;
+}
+
+.icon-container {
+  max-width: 105px;
+}
+
+.post-user-location {
+  font-size: var(--fs-200);
+}
+
+.icon {
+  max-width: 33%;
+}
+
+.icon:hover {
+  cursor: pointer;
 }
