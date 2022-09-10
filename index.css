@@ -44,6 +44,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .container {
   margin: 0 auto;
   max-width: 375px;
+  background: #fff;
 }
 
 .flex {
@@ -52,7 +53,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .fs-200 { font-size: var(--fs-200);}
 .fs-300 { font-size: var(--fs-300);}
-
 .fw-bold { font-weight: var(--fw-700);}
 
 /* General Styles */
@@ -60,45 +60,59 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: var(--fs-300);
   background: burlywood;
-
-}
-
-.oldagram {
-  background: #fff;
 }
 
 .header {
+  padding: 16px;
 	justify-content: space-between;
 	align-items: center;
-  border-bottom: 1px solid #C6C6C6;
+  background: #fff;
+  border-bottom: 2px solid #C6C6C6;
 }
 
 .logo {
-  width: 127px;
+  width: 8rem;
 }
 
 .avatar {
-  width: 34px;
+  width: 2.125rem;
   border-radius: 50%; 
 }
 
 
 /* individual post styles */
 
+.post {
+  border-bottom: 24px solid #EDEDED;
+}
+
 .post-header {
   justify-content: flex-start;
 	align-items: center;
+  padding: 10px;
 }
 
-.icon-container {
-  max-width: 105px;
+.post-avatar {
+  margin-right: 7px;
 }
 
 .post-user-location {
   font-size: var(--fs-200);
 }
 
+.post-body {
+  padding: 20px 10px 16px;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.icon-container {
+  max-width: 105px;
+}
+
 .icon {
+  margin-right: 0.75em;
+  width: 1.5rem;
   max-width: 33%;
 }
 
