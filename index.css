@@ -106,16 +106,27 @@ body {
   gap: 0.5em;
 }
 
-.icon-container {
-  max-width: 105px;
+.icons-container {
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+
 }
 
 .icon {
-  margin-right: 0.75em;
   width: 1.5rem;
-  max-width: 33%;
 }
 
 .icon:hover {
   cursor: pointer;
 }
+
+.icon-container {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.liked {
+  color: red;
+}
+
