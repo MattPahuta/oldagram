@@ -32,15 +32,14 @@ const posts = [
         id: 2,
         liked: false,
     }
-]
+];
 
 const main = document.querySelector('#main');
 
-const renderPosts = () => {
+function renderPosts() {
   let postHtml = '';
 
   posts.forEach((post) => {
-
     postHtml += `
       <section class="post">
       <div class="post-header flex">
@@ -52,12 +51,12 @@ const renderPosts = () => {
           <p class="post-user-location fs-200">${post.location}</p>
         </div>
       </div>
-      <div class="post-image">
-        <img src="./${post.post}" alt="post by ${post.name}">
+      <div>
+        <img id="img-${post.id}" class="post-image" src="./${post.post}" alt="post by ${post.name}">
       </div>
       <div class="post-body flex">
         <div class="icons-container flex">
-          <span class="icon-container"><i onclick="likePost(${post.id})" id="${post.id}" class="heart-${post.id} icon fa-regular fa-heart"></i></span>
+          <span class="icon-container"><i id="${post.id}" class="heart-${post.id} icon fa-regular fa-heart"></i></span>
           <span class="icon-container"><img class="icon" src="./images/icon-comment.png" alt=""></span>
           <span class="icon-container"><img class="icon" src="./images/icon-dm.png" alt=""></span>
         </div>
@@ -68,26 +67,30 @@ const renderPosts = () => {
     `
   });
 
-  main.innerHTML = postHtml;
+  main.innerHTML = postHtml; // add html to the DOM
+  addEventListeners(); // add event listeners to post images and heart icons
 
 }
 
-/* <img onclick="likePost(${post.id})" class="icon like-icon" id="${post.id}" src="./images/icon-heart.png" alt="">
-*/
-
-// Todo - add event listeners to like icon for rendered posts, link to associated post
-// main.addEventListener('click', (e) => {
-//   if (e.target.classList.contains('like-icon')) {
-//     console.log('like icon clicked');
-
-//   }
-// })
+function addEventListeners() {
+  // get all the img elements
+  document.querySelectorAll('.post-image').forEach(img => {
+    img.addEventListener('dblclick', (e) => {
+      // console.log('ID: ', e.target.parentElement.nextElementSibling.children[0].childNodes[1].childNodes[0].id);
+      const postId = e.target.parentElement.nextElementSibling.children[0].childNodes[1].childNodes[0].id; // some wild DOM traversal here, lol
+      likePost(postId); // call likePost function
+    })
+  })
+  // get all the heart icons
+  document.querySelectorAll('.fa-heart').forEach(heart => {
+    heart.addEventListener('click', (e) => {
+      postId = e.target.id;
+      likePost(postId); // call the likePost function
+    })
+  })
+}
 
 function likePost(postId) {
-  console.log(postId)
-  // console.log(posts[postId])
-  // posts[postId].likes += 1;
-  // console.log(posts[postId])
   const likeCount = document.querySelector(`.post-${postId}`);
   const heartIcon = document.querySelector(`.heart-${postId}`);
 
@@ -95,16 +98,13 @@ function likePost(postId) {
     posts[postId].likes += 1; // increment the post object's like property
     likeCount.textContent = posts[postId].likes; // get the updated like count, update DOM
     posts[postId].liked = true; // toggle liked prop to true
-    heartIcon.classList.add('liked'); // 
-    console.log(posts[postId])
-  } else if (posts[postId].liked === true) {
-    console.log('liked is true')
-    posts[postId].likes -= 1;
-    likeCount.textContent = posts[postId].likes;
-    posts[postId].liked = false;
-    heartIcon.classList.remove('liked');
+    heartIcon.classList.add('liked'); // add the liked class to color the heart icon
+  } else if (posts[postId].liked === true) { // if you already liked it, do this:
+    posts[postId].likes -= 1; // decrement the post object's like property
+    likeCount.textContent = posts[postId].likes; // update the DOM
+    posts[postId].liked = false; // toggle the liked prop to false
+    heartIcon.classList.remove('liked'); // remove the liked class to remove the color
   }
-
   
 }
 
