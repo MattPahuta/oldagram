@@ -86,6 +86,10 @@ body {
   border-bottom: 24px solid #EDEDED;
 }
 
+.post:last-of-type {
+  border-bottom: none;
+}
+
 .post-header {
   justify-content: flex-start;
 	align-items: center;

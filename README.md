@@ -20,7 +20,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [live site url](https://your-live-site-url.com)
+- Live Site URL: [live site url](https://mattpahuta.github.io/oldagram/)
 
 
 ### About Scrimba
