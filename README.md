@@ -4,7 +4,7 @@
 
 ### The challenge
 
-Build the Oldagram app (A take on Instagram) using HTML, CSS, and JavaScript (strech goals). 
+Build the Oldagram app (Instagram parody) using HTML, CSS, and JavaScript. 
 
 Users should be able to: 
 
