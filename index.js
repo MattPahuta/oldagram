@@ -52,7 +52,7 @@ function renderPosts() {
         </div>
       </div>
       <div>
-        <img id="img-${post.id}" class="post-image" src="./${post.post}" alt="post by ${post.name}">
+        <img id="img-${post.id}" class="post-image" src="./${post.post}" alt="post by ${post.name}" data-img="${post.id}">
       </div>
       <div class="post-body flex">
         <div class="icons-container flex">
@@ -76,9 +76,8 @@ function addEventListeners() {
   // get all the img elements
   document.querySelectorAll('.post-image').forEach(img => {
     img.addEventListener('dblclick', (e) => {
-      // console.log('ID: ', e.target.parentElement.nextElementSibling.children[0].childNodes[1].childNodes[0].id);
-      const postId = e.target.parentElement.nextElementSibling.children[0].childNodes[1].childNodes[0].id; // some wild DOM traversal here, lol
-      likePost(postId); // call likePost function
+      const imgId = e.target.dataset.img; // get the dataset img ID
+      likePost(imgId); // call likePost function
     })
   })
   // get all the heart icons
